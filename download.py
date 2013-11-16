@@ -20,17 +20,16 @@ class Down:
         break
       filesizedl += len(buffer)
       f.write(buffer)
-      status=filename+r"  %10d [%3.2f]"%(filesizedl,filesizedl*100./filesize)
-      status = status + chr(8)*(len(status)+1)
-      print(status,end='')
-    print("")
+      #status=filename+r"  %10d [%3.2f]"%(filesizedl,filesizedl*100./filesize)
+      #status = status + chr(8)*(len(status)+1)
+      #print(status,end='')
+    print("%s download complete!"%(filename))
     
     
     
 def main():
   d=Down()
   threadlist=[]
-  print(sys.argv[1],sys.argv[2])
   for i in range(len(sys.argv)-1):
     t=Thread(target=d.dow,args=(sys.argv[i+1],))
     t.start()
